@@ -27,12 +27,16 @@ jobs:
             ${{ runner.os }}-node-
       - run: npm ci
 
-      - name: Run Actual AI
+      - name: Build TypeScript project
+        run: npm run build
+
+      - name: Run Actual AI (Dry Run)
         env:
           ACTUAL_SERVER_URL: ${{ secrets.ACTUAL_SERVER_URL }}
           ACTUAL_PASSWORD: ${{ secrets.ACTUAL_PASSWORD }}
           ACTUAL_BUDGET_ID: ${{ secrets.ACTUAL_BUDGET_ID }}
           LLM_PROVIDER: 'google-generative-ai'
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          # "dryRun" is included here, so nothing will be saved to your budget
           FEATURES: '["dryRun", "classifyOnStartup", "syncAccountsBeforeClassify", "suggestNewCategories"]'
-        run: npm start
+        run: node dist/app.js
