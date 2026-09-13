@@ -39,5 +39,6 @@ jobs:
           LLM_PROVIDER: 'google-generative-ai'
           GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
           GOOGLE_GENERATIVE_AI_MODEL: 'gemini-3.5-flash'
-          FEATURES: '["dryRun", "classifyOnStartup", "syncAccountsBeforeClassify", "suggestNewCategories"]'
+          REQUESTS_PER_MINUTE: '4'
+          FEATURES: '["dryRun", "classifyOnStartup", "syncAccountsBeforeClassify", "suggestNewCategories", "rerunMissedTransactions"]'
         run: node dist/app.js
