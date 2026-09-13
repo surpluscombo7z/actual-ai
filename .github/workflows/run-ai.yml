@@ -34,5 +34,5 @@ jobs:
           ACTUAL_BUDGET_ID: ${{ secrets.ACTUAL_BUDGET_ID }}
           LLM_PROVIDER: 'google-generative-ai'
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-          FEATURES: '["classifyOnStartup", "syncAccountsBeforeClassify", "suggestNewCategories"]'
+          FEATURES: '["dryRun", "classifyOnStartup", "syncAccountsBeforeClassify", "suggestNewCategories"]'
         run: npm start
