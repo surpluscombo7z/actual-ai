@@ -37,6 +37,6 @@ jobs:
           ACTUAL_BUDGET_ID: ${{ secrets.ACTUAL_BUDGET_ID }}
           ACTUAL_E2E_PASSWORD: ${{ secrets.ACTUAL_E2E_PASSWORD }} # Added for encrypted files
           LLM_PROVIDER: 'google-generative-ai'
-          GEMINI_API_KEY: ${{ secrets.LLM_API_KEY }}
+          GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
           FEATURES: '["dryRun", "classifyOnStartup", "syncAccountsBeforeClassify", "suggestNewCategories"]'
         run: node dist/app.js
