@@ -2,8 +2,8 @@ name: Run Actual AI Categorization
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
-  workflow_dispatch:
+    - cron: '0 */6 * * *' # Runs automatically every 6 hours
+  workflow_dispatch: # Allows you to run it manually anytime from the GitHub UI
 
 jobs:
   classify:
@@ -15,11 +15,17 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22 # Repository requires Node 22+
+          node-version: 22
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci
 
       - name: Run Actual AI
         env:
@@ -28,5 +34,5 @@ jobs:
           ACTUAL_BUDGET_ID: ${{ secrets.ACTUAL_BUDGET_ID }}
           LLM_PROVIDER: 'google-generative-ai'
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-          FEATURES: '["dryRun", "classifyOnStartup", "syncAccountsBeforeClassify", "suggestNewCategories"]'
+          FEATURES: '["classifyOnStartup", "syncAccountsBeforeClassify", "suggestNewCategories"]'
         run: npm start
