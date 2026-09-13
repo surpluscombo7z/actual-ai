@@ -40,5 +40,5 @@ jobs:
           GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
           GOOGLE_GENERATIVE_AI_MODEL: 'gemini-3.1-flash-lite'
           REQUESTS_PER_MINUTE: '8'
-          FEATURES: '["classifyOnStartup", "syncAccountsBeforeClassify", "suggestNewCategories", "rerunMissedTransactions"]'
+          FEATURES: '["classifyOnStartup", "suggestNewCategories", "rerunMissedTransactions"]'
         run: node dist/app.js
