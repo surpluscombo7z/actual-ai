@@ -35,8 +35,8 @@ jobs:
           ACTUAL_SERVER_URL: ${{ secrets.ACTUAL_SERVER_URL }}
           ACTUAL_PASSWORD: ${{ secrets.ACTUAL_PASSWORD }}
           ACTUAL_BUDGET_ID: ${{ secrets.ACTUAL_BUDGET_ID }}
+          ACTUAL_E2E_PASSWORD: ${{ secrets.ACTUAL_E2E_PASSWORD }} # Added for encrypted files
           LLM_PROVIDER: 'google-generative-ai'
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-          # "dryRun" is included here, so nothing will be saved to your budget
           FEATURES: '["dryRun", "classifyOnStartup", "syncAccountsBeforeClassify", "suggestNewCategories"]'
         run: node dist/app.js
