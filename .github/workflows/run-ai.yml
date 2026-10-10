@@ -3,7 +3,7 @@ name: Run Actual AI Categorization
 on:
   schedule:
     - cron: '0 */6 * * *' # Runs automatically every 6 hours
-  workflow_dispatch: # Allows you to run it manually anytime from the GitHub UI
+  workflow_dispatch: # Allows you to run it manually anytime from the GitHub UI.
 
 jobs:
   classify:
