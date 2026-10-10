@@ -15,5 +15,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: sakowicz/actual-ai
+          repository: surpluscombo7z/actual-ai
           short-description: ${{ github.event.repository.description }}
